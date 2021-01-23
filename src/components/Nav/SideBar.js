@@ -67,7 +67,7 @@ function Sidebar() {
               className={classes.nested}
             >
               <ListItemIcon>
-                <Visibility color="primary" />
+                <Visibility color="action" />
               </ListItemIcon>
               <ListItemText primary="View" />
             </ListItem>
@@ -120,7 +120,7 @@ function Sidebar() {
               className={classes.nested}
             >
               <ListItemIcon>
-                <Visibility color="primary" />
+                <Visibility color="action" />
               </ListItemIcon>
               <ListItemText primary="View" />
             </ListItem>
