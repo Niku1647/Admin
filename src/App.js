@@ -1,15 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/Nav/Navbar";
-import Newnav from "./components/Newnav";
-import Sidebar from "./components/Sidebar";
-import Dashboard from "./pages/DashboardScreen";
-import { Toggle } from "./Toggle";
+import AdminHomePage from "./components/AdminHomePage";
+import Sample from "./Sample";
 
 function App() {
   return (
     <BrowserRouter>
-      <Newnav />
+      <AdminHomePage />
     </BrowserRouter>
   );
 }

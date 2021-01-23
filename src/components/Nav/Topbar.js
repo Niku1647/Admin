@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import { AccountCircleOutlined } from "@material-ui/icons";
+import TopBarSide from "./TopBarSide";
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -24,12 +24,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Topbar() {
+function Topbar({ handleDrawerToggle }) {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+
   return (
     <div>
       <AppBar className={classes.appBar}>
@@ -44,10 +41,8 @@ function Topbar() {
             <MenuIcon style={{ color: "white" }} />
           </IconButton>
 
-          <Typography variant="h6" style={{ flexShrink: 1 }}>
-            Responsive drawer
-          </Typography>
-          <AccountCircleOutlined style={{ color: "white" }} />
+          <Typography variant="h6">Admin Page</Typography>
+          <TopBarSide />
         </Toolbar>
       </AppBar>
     </div>

@@ -1,27 +1,20 @@
 import React from "react";
-import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Divider from "@material-ui/core/Divider";
 import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
-import IconButton from "@material-ui/core/IconButton";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import MailIcon from "@material-ui/icons/Mail";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Navoptions from "./Nav/Navoptions";
-import Topbar from "./Topbar";
-import { OutlinedInput } from "@material-ui/core";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import SideBar from "./Nav/SideBar";
+import Topbar from "./Nav/Topbar";
+import { Route } from "react-router-dom";
+import DashboardScreen from "./pages/DashboardScreen";
+import VisitorsScreen from "./pages/VisitorsScreen";
+import ProfileScreen from "./pages/ProfileScreen";
+import ChatScreen from "./pages/ChatScreen";
+import CatalogScreen from "./pages/CatalogScreen";
+import AppointmentScreen from "./pages/AppointmentScreen";
+import VideocallScreen from "./pages/VideocallScreen";
 
 const drawerWidth = 240;
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -55,26 +48,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Newnav(props) {
+function FullNavScreen(props) {
   const { window } = props;
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
   return (
     <div>
       <div className={classes.root}>
         <CssBaseline />
+        <Topbar handleDrawerToggle={handleDrawerToggle} />
 
-        <Topbar />
-
-        <nav className={classes.drawer} aria-label="mailbox folders">
+        <nav className={classes.drawer}>
           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
           <Hidden smUp implementation="css">
             <Drawer
@@ -90,7 +81,7 @@ function Newnav(props) {
                 keepMounted: true, // Better open performance on mobile.
               }}
             >
-              <Navoptions />
+              <SideBar />
             </Drawer>
           </Hidden>
           <Hidden xsDown implementation="css">
@@ -101,16 +92,23 @@ function Newnav(props) {
               variant="permanent"
               open
             >
-              <Navoptions />
+              <SideBar />
             </Drawer>
           </Hidden>
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
+          <Route path="/" exact component={DashboardScreen} />
+          <Route path="/visitors" component={VisitorsScreen} />
+          <Route path="/profile" component={ProfileScreen} />
+          <Route path="/chat" component={ChatScreen} />
+          <Route path="/catalog" component={CatalogScreen} />
+          <Route path="/appointment" component={AppointmentScreen} />
+          <Route path="/videocall" component={VideocallScreen} />
         </main>
       </div>
     </div>
   );
 }
 
-export default Newnav;
+export default FullNavScreen;
