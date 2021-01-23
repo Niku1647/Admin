@@ -8,6 +8,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import { Link } from "react-router-dom";
+import { Edit, SettingsPower } from "@material-ui/icons";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -57,16 +59,27 @@ function TopBarSide() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
-        Profile
+        <IconButton>
+          <AccountCircle color="primary" />
+        </IconButton>
+        <p>Profile</p>
       </MenuItem>
-      <MenuItem onClick={handleMenuClose}>Edit</MenuItem>
+      <MenuItem onClick={handleMenuClose} component={Link} to="/editprofile">
+        <IconButton>
+          <Edit color="action" />
+        </IconButton>
+        <p>Edit</p>
+      </MenuItem>
       <MenuItem
         onClick={() => {
           handleMenuClose();
           window.location.href = "/";
         }}
       >
-        Logout
+        <IconButton>
+          <SettingsPower color="secondary" />
+        </IconButton>
+        <p>Logout</p>
       </MenuItem>
     </Menu>
   );

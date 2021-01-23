@@ -13,6 +13,8 @@ import ChatScreen from "./pages/ChatScreen";
 import CatalogScreen from "./pages/CatalogScreen";
 import AppointmentScreen from "./pages/AppointmentScreen";
 import VideocallScreen from "./pages/VideocallScreen";
+import ProfileEdit from "./pages/ProfileEdit";
+import CatalogEdit from "./pages/CatalogEdit";
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -105,6 +107,8 @@ function FullNavScreen(props) {
           <Route path="/catalog" component={CatalogScreen} />
           <Route path="/appointment" component={AppointmentScreen} />
           <Route path="/videocall" component={VideocallScreen} />
+          <Route path="/editprofile" component={ProfileEdit} />
+          <Route path="/editcatalog" component={CatalogEdit} />
         </main>
       </div>
     </div>

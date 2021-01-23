@@ -19,9 +19,10 @@ import {
   SettingsPower,
   Textsms,
   VideoCall,
+  Visibility,
 } from "@material-ui/icons";
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   nested: {
@@ -46,8 +47,6 @@ function Sidebar() {
         </ListItem>
         <ListItem
           button
-          component={Link}
-          to="/profile"
           onClick={() => {
             setOpenProfile(!openProfile);
             setOpenCatalog(false);
@@ -61,7 +60,25 @@ function Sidebar() {
         </ListItem>
         <Collapse in={openProfile} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
+            <ListItem
+              button
+              component={Link}
+              to="/profile"
+              className={classes.nested}
+            >
+              <ListItemIcon>
+                <Visibility color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="View" />
+            </ListItem>
+          </List>
+          <List component="div" disablePadding>
+            <ListItem
+              button
+              component={Link}
+              to="/editprofile"
+              className={classes.nested}
+            >
               <ListItemIcon>
                 <Edit color="action" />
               </ListItemIcon>
@@ -77,14 +94,12 @@ function Sidebar() {
         </ListItem>
         <ListItem button component={Link} to="/chat">
           <ListItemIcon>
-            <Textsms style={{ color: "green" }} />
+            <Textsms color="primary" />
           </ListItemIcon>
           <ListItemText primary="Chat" />
         </ListItem>
         <ListItem
           button
-          component={Link}
-          to="/catalog"
           onClick={() => {
             setOpenCatalog(!openCatalog);
             setOpenProfile(false);
@@ -98,7 +113,25 @@ function Sidebar() {
         </ListItem>
         <Collapse in={openCatalog} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
-            <ListItem button className={classes.nested}>
+            <ListItem
+              button
+              component={Link}
+              to="/catalog"
+              className={classes.nested}
+            >
+              <ListItemIcon>
+                <Visibility color="primary" />
+              </ListItemIcon>
+              <ListItemText primary="View" />
+            </ListItem>
+          </List>
+          <List component="div" disablePadding>
+            <ListItem
+              button
+              component={Link}
+              to="/editcatalog"
+              className={classes.nested}
+            >
               <ListItemIcon>
                 <Edit color="action" />
               </ListItemIcon>
@@ -114,11 +147,11 @@ function Sidebar() {
         </ListItem>
         <ListItem button component={Link} to="/videocall">
           <ListItemIcon>
-            <VideoCall style={{ color: "green" }} />
+            <VideoCall color="primary" />
           </ListItemIcon>
           <ListItemText primary="VideoCall" />
         </ListItem>
-
+        <Divider />
         <ListItem
           button
           onClick={() => {
