@@ -1,5 +1,5 @@
 import React from "react";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
@@ -10,7 +10,7 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { LockOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -40,7 +40,7 @@ const ForgetPassword = () => {
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
+            <LockOutlined />
           </Avatar>
           <Typography component="h1" variant="h5">
             Reset Your Password

@@ -1,6 +1,9 @@
+import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Navigation } from "../components";
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
@@ -24,7 +27,7 @@ const columns = [
   },
 ];
 
-const AppointmentScreen = () => {
+const CatalogScreen = () => {
   const [rows, setRows] = useState([]);
   useEffect(() => {
     axios
@@ -43,9 +46,8 @@ const AppointmentScreen = () => {
         console.log(err);
       });
   }, []);
-
   return (
-    <div>
+    <Navigation>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={rows}
@@ -54,8 +56,8 @@ const AppointmentScreen = () => {
           checkboxSelection
         />
       </div>
-    </div>
+    </Navigation>
   );
 };
 
-export default AppointmentScreen;
+export default CatalogScreen;

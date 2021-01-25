@@ -6,9 +6,11 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import TopBarSide from "./TopBarSide";
+import { Menu } from "@material-ui/icons";
+
 const drawerWidth = 240;
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     [theme.breakpoints.up("sm")]: {
@@ -38,7 +40,7 @@ function Topbar({ handleDrawerToggle }) {
             onClick={handleDrawerToggle}
             className={classes.menuButton}
           >
-            <MenuIcon style={{ color: "white" }} />
+            <Menu style={{ color: "white" }} />
           </IconButton>
 
           <Typography variant="h6">Admin Page</Typography>

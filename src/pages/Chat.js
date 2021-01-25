@@ -1,10 +1,11 @@
 import React from "react";
+import { Navigation } from "../components";
 
 const ChatScreen = () => {
   return (
-    <div>
+    <Navigation>
       <h1>ChatScreen</h1>
-    </div>
+    </Navigation>
   );
 };
 

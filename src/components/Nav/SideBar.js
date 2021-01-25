@@ -1,3 +1,5 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Divider,
@@ -21,8 +23,8 @@ import {
   VideoCall,
   Visibility,
 } from "@material-ui/icons";
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Icon from "../../assets/icon.png";
+
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   nested: {
@@ -37,8 +39,14 @@ function Sidebar() {
   return (
     <div>
       <List>
-        <div style={{ textAlign: "center", color: "red" }}>
-          <h1>Exposium</h1>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "10px",
+          }}
+        >
+          <img src={Icon} alt="Exposium" style={{ width: "80%" }} />
         </div>
 
         <Divider />
@@ -66,7 +74,7 @@ function Sidebar() {
             <ListItem
               button
               component={Link}
-              to="/profile"
+              to="/Profile"
               className={classes.nested}
             >
               <ListItemIcon>
@@ -79,7 +87,7 @@ function Sidebar() {
             <ListItem
               button
               component={Link}
-              to="/editprofile"
+              to="/EditProfile"
               className={classes.nested}
             >
               <ListItemIcon>
@@ -95,7 +103,7 @@ function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Visitors" />
         </ListItem>
-        <ListItem button component={Link} to="/chat">
+        <ListItem button component={Link} to="/Chat">
           <ListItemIcon>
             <Textsms color="primary" />
           </ListItemIcon>
@@ -119,7 +127,7 @@ function Sidebar() {
             <ListItem
               button
               component={Link}
-              to="/catalog"
+              to="/Catalog"
               className={classes.nested}
             >
               <ListItemIcon>
@@ -132,7 +140,7 @@ function Sidebar() {
             <ListItem
               button
               component={Link}
-              to="/editcatalog"
+              to="/EditCatalog"
               className={classes.nested}
             >
               <ListItemIcon>
@@ -142,20 +150,20 @@ function Sidebar() {
             </ListItem>
           </List>
         </Collapse>
-        <ListItem button component={Link} to="/appointment">
+        <ListItem button component={Link} to="/Appointment">
           <ListItemIcon>
             <EventNote color="primary" />
           </ListItemIcon>
           <ListItemText primary="Appointment" />
         </ListItem>
-        <ListItem button component={Link} to="/videocall">
+        <ListItem button component={Link} to="/Videocall">
           <ListItemIcon>
             <VideoCall color="primary" />
           </ListItemIcon>
           <ListItemText primary="VideoCall" />
         </ListItem>
         <Divider />
-        <ListItem button component={Link} to="/dashboard">
+        <ListItem button component={Link} to="/Dashboard">
           <ListItemIcon>
             <SettingsPower color="secondary" />
           </ListItemIcon>

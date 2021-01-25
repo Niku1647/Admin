@@ -1,10 +1,11 @@
 import React from "react";
+import { Navigation } from "../components";
 
 const CatalogEdit = () => {
   return (
-    <div>
+    <Navigation>
       <h1>CatalogEdit</h1>
-    </div>
+    </Navigation>
   );
 };
 

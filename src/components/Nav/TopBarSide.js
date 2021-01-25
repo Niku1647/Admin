@@ -1,14 +1,14 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import MoreIcon from "@material-ui/icons/MoreVert";
 import { Link } from "react-router-dom";
-import { Edit, SettingsPower } from "@material-ui/icons";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  AccountCircle,
+  Edit,
+  MoreVert,
+  Notifications,
+  SettingsPower,
+} from "@material-ui/icons";
+import { Badge, IconButton, Menu, MenuItem } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -58,19 +58,19 @@ function TopBarSide() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
+      <MenuItem onClick={handleMenuClose} component={Link} to="/Profile">
         <IconButton>
           <AccountCircle color="primary" />
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem onClick={handleMenuClose} component={Link} to="/editprofile">
+      <MenuItem onClick={handleMenuClose} component={Link} to="/EditProfile">
         <IconButton>
           <Edit color="action" />
         </IconButton>
         <p>Edit</p>
       </MenuItem>
-      <MenuItem component={Link} to="/dashboard" onClick={handleMenuClose}>
+      <MenuItem component={Link} to="/Dashboard" onClick={handleMenuClose}>
         <IconButton>
           <SettingsPower color="secondary" />
         </IconButton>
@@ -92,7 +92,7 @@ function TopBarSide() {
       <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
+            <Notifications />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -116,7 +116,7 @@ function TopBarSide() {
         <div className={classes.sectionDesktop}>
           <IconButton color="inherit">
             <Badge badgeContent={17} color="secondary">
-              <NotificationsIcon />
+              <Notifications />
             </Badge>
           </IconButton>
           <IconButton
@@ -136,7 +136,7 @@ function TopBarSide() {
             onClick={handleMobileMenuOpen}
             color="inherit"
           >
-            <MoreIcon />
+            <MoreVert />
           </IconButton>
         </div>
 

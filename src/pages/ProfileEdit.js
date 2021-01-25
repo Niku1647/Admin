@@ -1,10 +1,11 @@
 import React from "react";
+import { Navigation } from "../components";
 
 const ProfileEdit = () => {
   return (
-    <div>
+    <Navigation>
       <h1>Profile Edit</h1>
-    </div>
+    </Navigation>
   );
 };
 

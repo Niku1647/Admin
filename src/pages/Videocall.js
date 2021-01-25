@@ -1,10 +1,11 @@
 import React from "react";
+import { Navigation } from "../components";
 
 const VideocallScreen = () => {
   return (
-    <div>
+    <Navigation>
       <h1>VideocallScreen</h1>
-    </div>
+    </Navigation>
   );
 };
 

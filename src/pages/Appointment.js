@@ -1,8 +1,7 @@
-import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Navigation } from "../components";
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
@@ -26,14 +25,12 @@ const columns = [
   },
 ];
 
-const VisitorsScreen = () => {
-  const [data, setData] = useState([]);
+const AppointmentScreen = () => {
   const [rows, setRows] = useState([]);
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
-        setData(res.data);
         setRows([
           {
             id: res.data[0].id,
@@ -47,11 +44,19 @@ const VisitorsScreen = () => {
         console.log(err);
       });
   }, []);
+
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid rows={rows} columns={columns} pageSize={5} checkboxSelection />
-    </div>
+    <Navigation>
+      <div style={{ height: 400, width: "100%" }}>
+        <DataGrid
+          rows={rows}
+          columns={columns}
+          pageSize={5}
+          checkboxSelection
+        />
+      </div>
+    </Navigation>
   );
 };
 
-export default VisitorsScreen;
+export default AppointmentScreen;
