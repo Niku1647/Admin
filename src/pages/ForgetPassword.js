@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
@@ -34,6 +34,17 @@ const useStyles = makeStyles((theme) => ({
 
 const ForgetPassword = () => {
   const classes = useStyles();
+  const [newEmail, setNewEmail] = useState("");
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    try {
+      console.log(newEmail);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setNewEmail("");
+    }
+  };
   return (
     <div>
       <Container component="main" maxWidth="xs">
@@ -45,7 +56,7 @@ const ForgetPassword = () => {
           <Typography component="h1" variant="h5">
             Reset Your Password
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={handelSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -56,6 +67,10 @@ const ForgetPassword = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={newEmail}
+              onChange={(e) => {
+                setNewEmail(e.target.value);
+              }}
             />
 
             <Button

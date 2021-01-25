@@ -1,14 +1,16 @@
-import React from "react";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import TextField from "@material-ui/core/TextField";
-import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import {
+  Avatar,
+  Button,
+  Container,
+  CssBaseline,
+  Grid,
+  makeStyles,
+  TextField,
+  Typography,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -32,6 +34,19 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    try {
+      console.log(email, password);
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setEmail("");
+      setPassword("");
+    }
+  };
   return (
     <div>
       <Container component="main" maxWidth="xs">
@@ -43,7 +58,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} onSubmit={handelSubmit}>
             <TextField
               variant="outlined"
               margin="normal"
@@ -54,6 +69,10 @@ const Login = () => {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
             />
             <TextField
               variant="outlined"
@@ -65,6 +84,10 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
             />
 
             <Button

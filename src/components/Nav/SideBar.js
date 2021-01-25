@@ -17,7 +17,9 @@ import {
   EventNote,
   ExpandLess,
   ExpandMore,
+  HeadsetMic,
   LibraryBooks,
+  Report,
   SettingsPower,
   Textsms,
   VideoCall,
@@ -161,6 +163,18 @@ function Sidebar() {
             <VideoCall color="primary" />
           </ListItemIcon>
           <ListItemText primary="VideoCall" />
+        </ListItem>
+        <ListItem button component={Link} to="/Support">
+          <ListItemIcon>
+            <HeadsetMic color="primary" />
+          </ListItemIcon>
+          <ListItemText primary="Support" />
+        </ListItem>
+        <ListItem button component={Link} to="/Report">
+          <ListItemIcon>
+            <Report color="primary" />
+          </ListItemIcon>
+          <ListItemText primary="Report" />
         </ListItem>
         <Divider />
         <ListItem button component={Link} to="/Dashboard">

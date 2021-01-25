@@ -9,6 +9,8 @@ import {
   NotFound,
   Profile,
   ProfileEdit,
+  Report,
+  Support,
   VideoCall,
   Visitors,
 } from "../pages";
@@ -26,6 +28,8 @@ const PrivateRoutes = () => {
       <Route path="/EditCatalog" exact component={CatalogEdit} />
       <Route path="/VideoCall" exact component={VideoCall} />
       <Route path="/Appointment" exact component={Appointment} />
+      <Route path="/Support" exact component={Support} />
+      <Route path="/Report" exact component={Report} />
 
       <Route path="/" component={NotFound} />
     </Switch>

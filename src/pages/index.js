@@ -10,6 +10,8 @@ import CatalogEdit from "./CatalogEdit";
 import Chat from "./Chat";
 import VideoCall from "./Videocall";
 import Appointment from "./Appointment";
+import Support from "./Support";
+import Report from "./Report";
 
 export {
   ForgetPassword,
@@ -24,4 +26,6 @@ export {
   Chat,
   VideoCall,
   Appointment,
+  Support,
+  Report
 };
