@@ -3,6 +3,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { Navigation } from "../components";
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
   { field: "firstName", headerName: "First name", width: 130 },
@@ -26,7 +27,7 @@ const columns = [
   },
 ];
 
-const Sample = () => {
+const Visitors = () => {
   const [data, setData] = useState([]);
   const [rows, setRows] = useState([]);
   useEffect(() => {
@@ -47,9 +48,8 @@ const Sample = () => {
         console.log(err);
       });
   }, []);
-
   return (
-    <div>
+    <Navigation>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={rows}
@@ -58,8 +58,8 @@ const Sample = () => {
           checkboxSelection
         />
       </div>
-    </div>
+    </Navigation>
   );
 };
 
-export default Sample;
+export default Visitors;

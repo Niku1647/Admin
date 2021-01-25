@@ -42,7 +42,7 @@ function Sidebar() {
         </div>
 
         <Divider />
-        <ListItem button component={Link} to="/dashboard">
+        <ListItem button component={Link} to="/Dashboard">
           <ListItemIcon>
             <Dashboard color="primary" />
           </ListItemIcon>
@@ -89,7 +89,7 @@ function Sidebar() {
             </ListItem>
           </List>
         </Collapse>
-        <ListItem button component={Link} to="/visitors">
+        <ListItem button component={Link} to="/Visitors">
           <ListItemIcon>
             <DirectionsWalkOutlined color="primary" />
           </ListItemIcon>

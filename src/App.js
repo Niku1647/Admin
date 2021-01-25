@@ -1,17 +1,15 @@
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import AdminHomePage from "./components/AdminHomePage";
-import Sample from "./Sample";
-import Login from "./components/pages/Login";
-import ForgetPassword from "./components/pages/ForgetPassword";
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import { useUser } from "./hooks";
+import { PrivateRoutes, PublicRoutes } from "./Routes";
 
-function App() {
+const App = () => {
+  const { user } = useUser();
   return (
     <BrowserRouter>
-      <Switch>
-        <AdminHomePage />
-      </Switch>
+      {user.uid ? <PrivateRoutes /> : <PublicRoutes />}
     </BrowserRouter>
   );
-}
+};
 
 export default App;
