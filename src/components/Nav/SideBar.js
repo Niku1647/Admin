@@ -37,9 +37,12 @@ function Sidebar() {
   return (
     <div>
       <List>
-        <div className={classes.toolbar} />
+        <div style={{ textAlign: "center", color: "red" }}>
+          <h1>Exposium</h1>
+        </div>
+
         <Divider />
-        <ListItem button component={Link} to="/">
+        <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
             <Dashboard color="primary" />
           </ListItemIcon>
@@ -152,12 +155,7 @@ function Sidebar() {
           <ListItemText primary="VideoCall" />
         </ListItem>
         <Divider />
-        <ListItem
-          button
-          onClick={() => {
-            window.location.href = "/";
-          }}
-        >
+        <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
             <SettingsPower color="secondary" />
           </ListItemIcon>

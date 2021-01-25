@@ -70,12 +70,7 @@ function TopBarSide() {
         </IconButton>
         <p>Edit</p>
       </MenuItem>
-      <MenuItem
-        onClick={() => {
-          handleMenuClose();
-          window.location.href = "/";
-        }}
-      >
+      <MenuItem component={Link} to="/dashboard" onClick={handleMenuClose}>
         <IconButton>
           <SettingsPower color="secondary" />
         </IconButton>

@@ -27,13 +27,11 @@ const columns = [
 ];
 
 const CatalogScreen = () => {
-  const [data, setData] = useState([]);
   const [rows, setRows] = useState([]);
   useEffect(() => {
     axios
       .get("https://jsonplaceholder.typicode.com/users")
       .then((res) => {
-        setData(res.data);
         setRows([
           {
             id: res.data[0].id,

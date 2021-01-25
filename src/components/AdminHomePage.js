@@ -5,7 +5,7 @@ import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import SideBar from "./Nav/SideBar";
 import Topbar from "./Nav/Topbar";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import DashboardScreen from "./pages/DashboardScreen";
 import VisitorsScreen from "./pages/VisitorsScreen";
 import ProfileScreen from "./pages/ProfileScreen";
@@ -100,15 +100,17 @@ function FullNavScreen(props) {
         </nav>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Route path="/" exact component={DashboardScreen} />
-          <Route path="/visitors" component={VisitorsScreen} />
-          <Route path="/profile" component={ProfileScreen} />
-          <Route path="/chat" component={ChatScreen} />
-          <Route path="/catalog" component={CatalogScreen} />
-          <Route path="/appointment" component={AppointmentScreen} />
-          <Route path="/videocall" component={VideocallScreen} />
-          <Route path="/editprofile" component={ProfileEdit} />
-          <Route path="/editcatalog" component={CatalogEdit} />
+          <Switch>
+            <Route path="/dashboard" exact component={DashboardScreen} />
+            <Route path="/visitors" exact component={VisitorsScreen} />
+            <Route path="/profile" exact component={ProfileScreen} />
+            <Route path="/chat" exact component={ChatScreen} />
+            <Route path="/catalog" exact component={CatalogScreen} />
+            <Route path="/appointment" exact component={AppointmentScreen} />
+            <Route path="/videocall" exact component={VideocallScreen} />
+            <Route path="/editprofile" exact component={ProfileEdit} />
+            <Route path="/editcatalog" exact component={CatalogEdit} />
+          </Switch>
         </main>
       </div>
     </div>
